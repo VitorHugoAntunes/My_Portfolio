@@ -9,14 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "18.16.3",
-    "@types/react": "18.2.0",
-    "@types/react-dom": "18.2.1",
+    "@prisma/client": "^4.13.0",
+    "@stitches/react": "^1.2.8",
+    "@types/node": "18.16.0",
+    "@types/react": "18.0.38",
+    "@types/react-dom": "18.0.11",
+    "axios": "^1.3.6",
+    "cors": "^2.8.5",
     "eslint": "8.39.0",
-    "eslint-config-next": "13.3.4",
-    "next": "13.3.4",
+    "eslint-config-next": "13.3.1",
+    "mongoose": "^7.0.5",
+    "next": "13.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/mongoose": "^5.11.97",
+    "prisma": "^4.13.0"
   }
 }
