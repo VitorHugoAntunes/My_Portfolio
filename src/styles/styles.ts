@@ -16,6 +16,7 @@ export const {
 
             background: '#0D1117',
             darkBackground: '#010409',
+            border: "#1C202A",
             icon: "#8B949E",
             text: '#535961',
             title: '#CBCFD6',
