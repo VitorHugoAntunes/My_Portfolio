@@ -20,9 +20,12 @@ export const {
             icon: "#8B949E",
             text: '#535961',
             title: '#CBCFD6',
+            card: '#0B1018',
+            cardBackground: '#070C12',
             gray300: '#c4c4cc',
             gray100: '#e1e1e6',
             gray50: '#F7F7F7',
+            blue: '#4FB3E1'
         },
 
         fontSizes: {

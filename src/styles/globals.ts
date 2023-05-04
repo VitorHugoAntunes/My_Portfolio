@@ -1,4 +1,4 @@
-import { globalCss } from "@stitches/react";
+import { globalCss, styled } from "@stitches/react";
 
 export const globalStyles = globalCss({
   '*': {
@@ -14,8 +14,13 @@ export const globalStyles = globalCss({
     '-webkit-font-smoothing': 'antialiased',
     maxWidth: "100vw",
     maxHeight: "100vh",
+    height: "100vh",
     marginLeft: "auto",
     marginRight: "auto",
+
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between"
   },
 
   'body, input, textarea, button': {
@@ -30,4 +35,11 @@ export const globalStyles = globalCss({
     cursor: "pointer",
     lineHeight: 0
   }
+})
+
+export const ContentContainer = styled('div', {
+  height: "100vh",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between"
 })

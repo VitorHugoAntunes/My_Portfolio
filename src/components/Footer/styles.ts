@@ -1,7 +1,6 @@
 import { styled } from "@stitches/react";
 
 export const FooterContainer = styled('div', {
-    position: "absolute",
     width: "100%",
     display: "flex",
     flexDirection: "row",
@@ -20,7 +19,14 @@ export const FooterContainer = styled('div', {
 
     "a": {
         svg: {
-            color: "$icon"
+            color: "$icon",
+            transition: "0.2s",
+        },
+
+        "&:hover": {
+            svg: {
+                filter: "brightness(0.6)",
+            }
         }
     },
 
