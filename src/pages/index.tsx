@@ -27,7 +27,7 @@ export default function Home() {
         </div>
         <div>
           <div className="comments">
-            <span>/**</span>
+            <span dangerouslySetInnerHTML={{ __html: "/**" }} />
             <span>* NextJS</span>
             <span>* ReactJS</span>
             <span>* NodeJS</span>
