@@ -39,7 +39,7 @@ export default function About() {
                     </div>
                     <div className={openTag === false ? 'techInterests' : 'techInterests open'}>
                         {techTags.map(tag => (
-                            <TagFolder arrowIcon={<FiChevronRight size={16} />} techIcon={tag.techIcon} title={tag.title} />
+                            <TagFolder key={tag.title} arrowIcon={<FiChevronRight size={16} />} techIcon={tag.techIcon} title={tag.title} />
                         ))}
                     </div>
 
