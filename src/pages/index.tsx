@@ -12,7 +12,7 @@ export default function Home() {
           <span className="occupation">Front-end developer</span>
         </div>
         <div>
-          <p>// write the code below to continue:</p>
+          <p dangerouslySetInnerHTML={{ __html: "// write the code below to continue:" }} />
           <div>
             <FiChevronsRight size={24} />
             <input type="text" placeholder="whois" />

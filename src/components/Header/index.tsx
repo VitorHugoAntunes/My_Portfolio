@@ -10,12 +10,12 @@ export default function Header() {
                         <span>Home</span>
                     </div>
                 </Link>
-                <Link href={'/'}>
+                <Link href={'/about'}>
                     <div>
                         <span>About me</span>
                     </div>
                 </Link>
-                <Link href={'/'}>
+                <Link href={'/projects'}>
                     <div>
                         <span>Projects</span>
                     </div>
