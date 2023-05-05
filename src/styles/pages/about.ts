@@ -56,5 +56,22 @@ export const InterestsContainer = styled('aside', {
 })
 
 export const AboutContent = styled('section', {
-    flex: 1
+    flex: 1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    gap: "2rem",
+
+    p: {
+        color: "$text"
+    },
+
+    "> div:first-child p": {
+        textAlign: "right"
+    },
+
+    ".paragraphs p:not(:first-child)": {
+        marginLeft: "1.2rem"
+    }
 })

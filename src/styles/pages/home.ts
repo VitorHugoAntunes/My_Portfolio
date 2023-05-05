@@ -99,7 +99,7 @@ export const PresentationCard = styled('div', {
             },
 
             "span:not(:first-child)": {
-                marginLeft: "1rem"
+                marginLeft: "1.2rem"
             },
         },
 

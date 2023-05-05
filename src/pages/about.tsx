@@ -21,6 +21,9 @@ export default function About() {
         { techIcon: <FaUbuntu size={16} color="#D24412" />, title: "Linux" },
     ]
 
+    const aboutText = "\nI started studying programming in 2019, when \nI enrolled in my first technical course in\n Systems Development, since then I've been very\n interested in technology. Today I'm a front-end\n developer because I like to deliver beautiful,\n high-performance products that users can interact\n with and that meet their expectations.\n\n I believe that learning is continuous and the next \n step never it's the last.\n"
+    const paragraphs = aboutText.split("\n")
+
     const [openTag, setOpenTag] = useState<boolean>(false)
 
     function changeTagStatus() {
@@ -47,7 +50,16 @@ export default function About() {
             </InterestsContainer>
 
             <AboutContent>
-                <h1>Hello</h1>
+                <div>
+                    {paragraphs.map((paragraph, index) => (
+                        <p key={paragraph}>{index + 1}</p>
+                    ))}
+                </div>
+                <div className='paragraphs'>
+                    {paragraphs.map((paragraph, index) => (
+                        <p key={paragraph}>{index === 0 && "/**"} {index !== 0 && index !== paragraphs.length - 1 && "*"} {index === paragraphs.length - 1 && "*/"} {paragraph}</p>
+                    ))}
+                </div>
             </AboutContent>
         </AboutContainer>
     )
