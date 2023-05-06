@@ -18,7 +18,7 @@ export const {
             darkBackground: '#010409',
             border: "#1C202A",
             icon: "#8B949E",
-            text: '#535961',
+            text: '#8B949E',
             title: '#CBCFD6',
             card: '#0B1018',
             cardBackground: '#070C12',

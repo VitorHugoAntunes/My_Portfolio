@@ -1,10 +1,22 @@
-import { HomeContainer, PresentationCard } from "@/styles/pages/home";
+import ProjectCard from "@/components/ProjectCard";
+import { HomeContainer } from "@/styles/pages/home";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { FiChevronsRight } from "react-icons/fi";
 
 export default function Home() {
+  const [isVisible, setIsVisible] = useState(false)
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
+  const style = {
+    opacity: isVisible ? 1 : 0,
+    transition: 'opacity 1s ease-in-out',
+  }
+
   return (
-    <HomeContainer>
+    <HomeContainer style={style}>
       <div>
         <div>
           <span>Hello! My name is</span>
@@ -20,27 +32,13 @@ export default function Home() {
         </div>
       </div>
 
-      <PresentationCard>
-        <div>
-          <span>40 projects</span>
-          <span>200 contribuitions</span>
-        </div>
-        <div>
-          <div className="comments">
-            <span dangerouslySetInnerHTML={{ __html: "/**" }} />
-            <span>* NextJS</span>
-            <span>* ReactJS</span>
-            <span>* NodeJS</span>
-            <span>*/</span>
-          </div>
-          <Link href={"/"}>
-            <div>
-              Click here to see my projects
-            </div>
-
-          </Link>
-        </div>
-      </PresentationCard>
+      <ProjectCard
+        title="40 projects"
+        contribuitions={"200 contribuitions"}
+        usedTechs={["", "NextJS", "ReactJS", "NodeJS", ""]}
+        linkTitle={"Click here to see my projects"}
+        boxShadow={true}
+      />
 
     </HomeContainer>
   )
