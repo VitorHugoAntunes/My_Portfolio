@@ -33,6 +33,23 @@ export const FooterContainer = styled('div', {
     "div:last-child": {
         flex: 1,
         display: "flex",
-        justifyContent: "end",
+        justifyContent: "flex-end",
+        gap: "2rem",
+
+        "> a": {
+            textDecoration: "none",
+            color: "$blue",
+            transition: "0.2s",
+
+            "&:hover": {
+                filter: "brightness(0.8)",
+            }
+        },
+
+        "> div": {
+            width: "2px",
+            height: "100%",
+            background: "$border"
+        }
     }
 })

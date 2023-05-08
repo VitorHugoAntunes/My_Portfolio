@@ -7,7 +7,7 @@ export default function SoundWaves() {
     const { hasSound, changeSoundStatus } = useContext(SoundContext)
     return (
         <SoundWavesBox className={hasSound === true ? "loader sound" : "loader noSound"}>
-            <button onClick={changeSoundStatus}>
+            <button onClick={changeSoundStatus} title="Se não houver áudio, verifique as permissões do seu navegador :)">
                 {hasSound === true ? (
                     <BiVolumeFull size={20} className="volume" />
                 ) : (

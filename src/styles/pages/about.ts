@@ -12,6 +12,9 @@ export const InterestsContainer = styled('aside', {
     border: "2px solid $border",
     borderBottom: "none",
     padding: "1rem",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
 
     ".tagsDiv": {
         marginTop: "1rem",
@@ -27,7 +30,8 @@ export const InterestsContainer = styled('aside', {
             transition: "0.2s",
 
             "&:hover": {
-                filter: "brightness(0.8)"
+                filter: "brightness(0.9)",
+                background: "$background"
             },
 
             "> span": {
@@ -51,6 +55,15 @@ export const InterestsContainer = styled('aside', {
                 visibility: "visible",
                 opacity: 1,
             }
+        },
+
+    },
+
+    "> span:last-child": {
+        alignSelf: "center",
+
+        strong: {
+            textDecoration: "underline",
         }
     }
 })

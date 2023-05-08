@@ -1,28 +1,26 @@
 import { useState } from 'react'
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { HeaderContainer } from "./styles";
 
 export default function Header() {
-    const [selectedTab, setSelectedTab] = useState<string>("Home");
-
-    function changeSelectedTab() {
-
-    }
+    const router = useRouter();
+    const currentURL = router.asPath;
 
     return (
         <HeaderContainer>
             <div className="navigationDiv">
-                <Link href={'/'} onClick={() => setSelectedTab("Home")} className={selectedTab === "Home" ? "selected" : ""}>
+                <Link href={'/'} className={currentURL.endsWith("/") ? "selected" : ""}>
                     <div>
                         <span>Home</span>
                     </div>
                 </Link>
-                <Link href={'/about'} onClick={() => setSelectedTab("About")} className={selectedTab === "About" ? "selected" : ""}>
+                <Link href={'/about'} className={currentURL.endsWith("/about") ? "selected" : ""}>
                     <div>
                         <span>About me</span>
                     </div>
                 </Link>
-                <Link href={'/projects'} onClick={() => setSelectedTab("Projects")} className={selectedTab === "Projects" ? "selected" : ""}>
+                <Link href={'/projects'} className={currentURL.endsWith("/projects") ? "selected" : ""}>
                     <div>
                         <span>Projects</span>
                     </div>

@@ -29,20 +29,23 @@ export default function About() {
     return (
         <AboutContainer style={style}>
             <InterestsContainer>
-                <span>Explorer</span>
+                <div>
+                    <span>Explorer</span>
 
-                <div className="tagsDiv">
-                    <div className='myInterests' onClick={changeTagStatus}>
-                        {openTag === false ? (<FiChevronRight size={16} />) : (<FiChevronDown size={16} />)}
-                        <span>My Interests</span>
+                    <div className="tagsDiv">
+                        <div className='myInterests' onClick={changeTagStatus}>
+                            {openTag === false ? (<FiChevronRight size={16} />) : (<FiChevronDown size={16} />)}
+                            <span>My Interests</span>
+                        </div>
+                        <div className={openTag === false ? 'techInterests' : 'techInterests open'}>
+                            {techTags.map(tag => (
+                                <TagFolder key={tag.title} arrowIcon={<FiChevronRight size={16} />} techIcon={tag.techIcon} title={tag.title} />
+                            ))}
+                        </div>
                     </div>
-                    <div className={openTag === false ? 'techInterests' : 'techInterests open'}>
-                        {techTags.map(tag => (
-                            <TagFolder key={tag.title} arrowIcon={<FiChevronRight size={16} />} techIcon={tag.techIcon} title={tag.title} />
-                        ))}
-                    </div>
-
                 </div>
+
+                <span>Available for a job?: <strong>yes</strong></span>
             </InterestsContainer>
 
             <AboutContent>
