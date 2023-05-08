@@ -29,9 +29,19 @@ export const HeaderContainer = styled('div', {
         },
 
         ".selected": {
-            borderTop: "2px solid orange",
             borderBottomColor: "$background",
-            background: "$background"
+            background: "$background",
+
+            "> div span": {
+                transition: "0.2s",
+                color: "$blue"
+            },
+
+            "&:hover": {
+                "> div span": {
+                    filter: "brightness(0.8)"
+                }
+            }
         },
 
         "> div": {

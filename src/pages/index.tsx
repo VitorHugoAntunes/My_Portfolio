@@ -1,11 +1,15 @@
+import { useContext } from 'react'
 import ProjectCard from "@/components/ProjectCard";
+import SoundWaves from "@/components/SoundWaves";
 import { HomeContainer } from "@/styles/pages/home";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiChevronsRight } from "react-icons/fi";
+import { SoundContext } from '@/contexts/SoundContext';
 
 export default function Home() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState<boolean>(false)
+
   useEffect(() => {
     setIsVisible(true)
   }, [])
@@ -39,6 +43,8 @@ export default function Home() {
         linkTitle={"Click here to see my projects"}
         boxShadow={true}
       />
+
+      <SoundWaves />
 
     </HomeContainer>
   )
