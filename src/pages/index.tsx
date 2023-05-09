@@ -1,17 +1,32 @@
 import ProjectCard from "@/components/ProjectCard";
 import SoundWaves from "@/components/SoundWaves";
 import { HomeContainer } from "@/styles/pages/home";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { FiChevronsRight } from "react-icons/fi";
 import { useRouter } from 'next/router'
+import axios from "axios";
+import { UserReposContext } from "@/contexts/userReposContext";
 
 export default function Home() {
-  const [isVisible, setIsVisible] = useState<boolean>(false)
-  const [inputValue, setInputValue] = useState<string>("")
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [inputValue, setInputValue] = useState<string>("");
+
+  const { userRepos, setUserRepos } = useContext(UserReposContext)
 
   const router = useRouter();
 
-  console.log(inputValue)
+  useEffect(() => {
+    async function fetchData() {
+      const responsePage1 = await axios.get("https://api.github.com/users/VitorHugoAntunes/repos?page=1")
+      const responsePage2 = await axios.get("https://api.github.com/users/VitorHugoAntunes/repos?page=2")
+
+      const repositories: Array<any> = responsePage1.data.concat(responsePage2.data);
+      console.log(repositories)
+      setUserRepos(repositories);
+    };
+
+    fetchData();
+  }, [])
 
   useEffect(() => {
     setIsVisible(true)
@@ -40,16 +55,16 @@ export default function Home() {
           <p dangerouslySetInnerHTML={{ __html: "// write the code below to continue:" }} />
           <div>
             <FiChevronsRight size={24} />
-            <input type="text" placeholder="more" onChange={(target) => setInputValue(target.target.value)} />
+            <input type="text" placeholder="more" onChange={(target) => setInputValue(target.target.value.toLowerCase())} />
           </div>
         </div>
       </div>
 
       <ProjectCard
-        title="40 projects"
-        contribuitions={"200 contribuitions"}
-        usedTechs={["", "NextJS", "ReactJS", "NodeJS", ""]}
+        title={`${userRepos.length} projects`}
+        usedTechs={["", "NextJS", "ReactJS", "NodeJS", "and more", ""]}
         linkTitle={"Click here to see my projects"}
+        link="/projects"
         boxShadow={true}
       />
 

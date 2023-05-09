@@ -4,16 +4,17 @@ import { ProjectCardDiv } from './styles'
 
 interface ProjectProps {
     title: string;
-    contribuitions: string;
+    contribuitions?: string;
     usedTechs: String[],
     linkTitle: string;
+    link: string;
 }
 
 interface CardStyleProps {
     boxShadow: boolean;
 }
 
-export default function ProjectCard({ title, contribuitions, usedTechs, linkTitle, boxShadow }: ProjectProps & CardStyleProps) {
+export default function ProjectCard({ title, contribuitions, usedTechs, linkTitle, link, boxShadow }: ProjectProps & CardStyleProps) {
     return (
         <ProjectCardDiv className={boxShadow === true ? 'boxShadowActive' : ''}>
             <div>
@@ -26,7 +27,7 @@ export default function ProjectCard({ title, contribuitions, usedTechs, linkTitl
                         <span key={index}>{index === 0 && "/**"} {index !== 0 && index !== usedTechs.length - 1 && "*"} {index === usedTechs.length - 1 && "*/"} {tech}</span>
                     ))}
                 </div>
-                <Link href={"/projects"}>
+                <Link href={`${link}`}>
                     <div>
                         {linkTitle}
                     </div>

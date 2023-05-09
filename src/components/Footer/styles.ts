@@ -4,7 +4,9 @@ export const FooterContainer = styled('div', {
     width: "100%",
     display: "flex",
     flexDirection: "row",
+    position: "absolute",
     bottom: 0,
+    background: "$background",
 
     span: {
         color: "$icon"

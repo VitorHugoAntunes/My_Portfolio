@@ -1,25 +1,25 @@
 import { styled } from "@stitches/react";
 
 export const ProjectsContainer = styled('div', {
-    width: "70%",
+    width: "100%",
     height: "100%",
-    alignSelf: "center",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    overflowY: "scroll",
+    alignItems: "center",
 
-    h3: {
-        color: "$gray300"
+    "> div": {
+        maxWidth: "70%",
+        width: "100%"
     }
 })
 
 export const ProjectsWrapper = styled('section', {
-    width: "100%",
-    display: "flex",
-    justifyContent: "space-between",
-    gap: "5rem",
-
-    marginTop: "1.5rem"
+    marginTop: "5rem",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    columnGap: "6rem",
+    rowGap: "5rem"
 })
 
 export const ProjectDiv = styled('div', {
