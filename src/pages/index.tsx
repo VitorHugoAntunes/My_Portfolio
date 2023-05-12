@@ -17,16 +17,26 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const responsePage1 = await axios.get("https://api.github.com/users/VitorHugoAntunes/repos?page=1")
-      const responsePage2 = await axios.get("https://api.github.com/users/VitorHugoAntunes/repos?page=2")
+      const userRepositories = localStorage.getItem("userRepositories");
 
-      const repositories: Array<any> = responsePage1.data.concat(responsePage2.data);
-      console.log(repositories)
-      setUserRepos(repositories);
-    };
+      if (!userRepositories) {
+        const responsePage1 = await axios.get("https://api.github.com/users/VitorHugoAntunes/repos?page=1");
+        const responsePage2 = await axios.get("https://api.github.com/users/VitorHugoAntunes/repos?page=2");
+
+        const repositories = responsePage1.data.concat(responsePage2.data);
+        console.log(repositories);
+
+        localStorage.setItem("userRepositories", JSON.stringify(repositories));
+        console.log("chamou a API");
+
+        setUserRepos(repositories);
+      } else {
+        setUserRepos(JSON.parse(userRepositories));
+      }
+    }
 
     fetchData();
-  }, [])
+  }, [setUserRepos]);
 
   useEffect(() => {
     setIsVisible(true)
@@ -65,6 +75,7 @@ export default function Home() {
         usedTechs={["", "NextJS", "ReactJS", "NodeJS", "and more", ""]}
         linkTitle={"Click here to see my projects"}
         link="/projects"
+        targetBlank={false}
         boxShadow={true}
       />
 

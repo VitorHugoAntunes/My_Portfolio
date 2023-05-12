@@ -19,7 +19,8 @@ export const ProjectsWrapper = styled('section', {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
     columnGap: "6rem",
-    rowGap: "5rem"
+    rowGap: "3rem",
+    marginBottom: "5rem"
 })
 
 export const ProjectDiv = styled('div', {
@@ -31,11 +32,13 @@ export const ProjectDiv = styled('div', {
         textAlign: "justify",
         maxWidth: "30rem",
         fontSize: "0.9rem",
-        color: "$icon"
+        color: "$icon",
+        minHeight: "5rem",
+        height: "100%"
     },
 
     "> a": {
-        marginTop: "2rem",
+        marginTop: "1rem",
         width: "fit-content",
         textDecoration: "none",
         color: "$blue",

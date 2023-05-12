@@ -8,13 +8,14 @@ interface ProjectProps {
     usedTechs: String[],
     linkTitle: string;
     link: string;
+    targetBlank?: boolean;
 }
 
 interface CardStyleProps {
     boxShadow: boolean;
 }
 
-export default function ProjectCard({ title, contribuitions, usedTechs, linkTitle, link, boxShadow }: ProjectProps & CardStyleProps) {
+export default function ProjectCard({ title, contribuitions, usedTechs, linkTitle, link, targetBlank, boxShadow }: ProjectProps & CardStyleProps) {
     return (
         <ProjectCardDiv className={boxShadow === true ? 'boxShadowActive' : ''}>
             <div>
@@ -27,7 +28,7 @@ export default function ProjectCard({ title, contribuitions, usedTechs, linkTitl
                         <span key={index}>{index === 0 && "/**"} {index !== 0 && index !== usedTechs.length - 1 && "*"} {index === usedTechs.length - 1 && "*/"} {tech}</span>
                     ))}
                 </div>
-                <Link href={`${link}`}>
+                <Link href={`${link}`} target={targetBlank === true ? '_blank' : '_self'}>
                     <div>
                         {linkTitle}
                     </div>

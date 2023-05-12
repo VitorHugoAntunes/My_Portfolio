@@ -61,6 +61,7 @@ export const InterestsContainer = styled('aside', {
 
     "> span:last-child": {
         alignSelf: "center",
+        marginBottom: "3.5rem",
 
         strong: {
             textDecoration: "underline",

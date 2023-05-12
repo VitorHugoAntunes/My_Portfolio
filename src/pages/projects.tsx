@@ -12,6 +12,7 @@ interface RepositoryProps {
 export default function Projects() {
     const [isVisible, setIsVisible] = useState(false)
     const [commitsArray, setCommitsArray] = useState<any[]>([])
+    const [filteredRepositories, setFilteredRepositories] = useState<any[]>([])
 
     const { userRepos } = useContext(UserReposContext);
 
@@ -24,30 +25,42 @@ export default function Projects() {
         { name: "TwitterClone" }
     ]
 
-    const filteredRepos = userRepos.filter((repo: RepositoryProps) => {
-        return filterNames.some((name) => name.name === repo.name);
-    });
-    console.log(filteredRepos);
-    console.log(filteredRepos);
-
     useEffect(() => {
         setIsVisible(true)
     }, [])
 
     useEffect(() => {
         async function fetchData() {
-            // Necessario pois os objetos de commits de cada repositorio nao fazem parte do proprio objeto do repo, mas sim um outro endpoint
-            let commitsResponse = [];
-            for (let i = 0; i < filteredRepos.length; i++) {
-                const response = await axios.get(`https://api.github.com/repos/VitorHugoAntunes/${filteredRepos[i].name}/commits`)
-                commitsResponse.push(response.data)
+            const userCommits = localStorage.getItem("commitsArray");
+            const filteredUserRepositories = localStorage.getItem("filteredRepositories");
+            if (!userCommits || userCommits === undefined || userCommits === "") {
+                // Necessario pois os objetos de commits de cada repositorio nao fazem parte do proprio objeto do repo, mas sim um outro endpoint
+                let commitsResponse = [];
+
+                const filteredRepos = userRepos.filter((repo: RepositoryProps) => {
+                    return filterNames.some((name) => name.name === repo.name);
+                });
+
+                for (let i = 0; i < filteredRepos.length; i++) {
+                    const response = await axios.get(`https://api.github.com/repos/VitorHugoAntunes/${filteredRepos[i].name}/commits`)
+                    commitsResponse.push(response.data)
+                }
+
+                localStorage.setItem("commitsArray", JSON.stringify(commitsResponse))
+                localStorage.setItem("filteredRepositories", JSON.stringify(filteredRepos))
+                console.log("ARRAY DE COMMITS", commitsArray)
+                console.log("Chamou de API")
+                console.log(commitsResponse)
+                setCommitsArray(commitsResponse)
+                setFilteredRepositories(filteredRepos)
+            } else {
+                setCommitsArray(JSON.parse(userCommits!))
+                setFilteredRepositories(JSON.parse(filteredUserRepositories!))
             }
 
-            setCommitsArray(commitsResponse)
-            console.log("ARRAY DE COMMITS", commitsArray)
         };
         fetchData();
-    }, [])
+    }, [setCommitsArray, setFilteredRepositories])
 
 
     const style = {
@@ -57,7 +70,7 @@ export default function Projects() {
     return (
         <ProjectsContainer style={style}>
             <ProjectsWrapper>
-                {filteredRepos.map((repositoryProject, index) => (
+                {filteredRepositories !== null && filteredRepositories.length > 0 && filteredRepositories.map((repositoryProject, index) => (
                     <ProjectDiv key={repositoryProject.id}>
                         <ProjectCard
                             title={`${repositoryProject.name}`}
@@ -65,11 +78,12 @@ export default function Projects() {
                             usedTechs={["", ...repositoryProject.topics.slice(0, 5), ""]}
                             linkTitle={"See this project"}
                             link={`${repositoryProject.html_url}`}
+                            targetBlank={true}
                             boxShadow={false}
                         />
 
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam libero recusandae sequi perspiciatis. Mollitia quidem totam sequi quas hic debitis corrupti expedita? Dolor, quos voluptate consectetur iusto cupiditate ut rem.</p>
-                        <Link href={`${repositoryProject.html_url}`}>
+                        <p>{repositoryProject.description}</p>
+                        <Link href={`${repositoryProject.html_url}`} target={'_blank'}>
                             Check in GitHub
                         </Link>
                     </ProjectDiv>

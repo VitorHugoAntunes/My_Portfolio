@@ -21,10 +21,10 @@ export default function Footer() {
             <div>
                 <span>Find me:</span>
             </div>
-            <Link href={"/"}>
+            <Link href={"https://www.linkedin.com/in/vitor-hugo-antunes-passos-59151018a/"} target="_blank">
                 <FiLinkedin size={20} />
             </Link>
-            <Link href={"/"}>
+            <Link href={"https://github.com/VitorHugoAntunes"} target="_blank">
                 <FiGithub size={20} />
             </Link>
             <div>
