@@ -17,7 +17,7 @@ interface CardStyleProps {
 
 export default function ProjectCard({ title, contribuitions, usedTechs, linkTitle, link, targetBlank, boxShadow }: ProjectProps & CardStyleProps) {
     return (
-        <ProjectCardDiv className={boxShadow === true ? 'boxShadowActive' : ''}>
+        <ProjectCardDiv className={boxShadow === true ? 'projectCard boxShadowActive' : 'projectCard'}>
             <div>
                 <span>{title}</span>
                 <span>{contribuitions}</span>

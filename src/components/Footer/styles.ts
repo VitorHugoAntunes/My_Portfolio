@@ -53,5 +53,11 @@ export const FooterContainer = styled('div', {
             height: "100%",
             background: "$border"
         }
+    },
+
+    "@media (max-width: 1000px)": {
+        "&": {
+            display: "none"
+        }
     }
 })

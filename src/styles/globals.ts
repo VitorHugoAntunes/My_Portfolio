@@ -34,6 +34,16 @@ export const globalStyles = globalCss({
     margin: 0,
     cursor: "pointer",
     lineHeight: 0
+  },
+
+  "@media (max-width: 1000px)": {
+    ".projectCard": {
+      maxWidth: "20rem",
+
+      "p, span, a": {
+        fontSize: "80%"
+      }
+    }
   }
 })
 

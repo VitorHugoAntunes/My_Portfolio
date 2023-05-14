@@ -23,7 +23,7 @@ export const HomeContainer = styled('div', {
         },
 
         "&:first-child": {
-            gap: "9rem",
+            gap: "5rem",
 
             "& > div:first-child": {
                 display: "flex",
@@ -46,6 +46,39 @@ export const HomeContainer = styled('div', {
             fontSize: "$2xl",
             height: "3rem",
             caretShape: "underscore"
+        }
+    },
+
+    "@media (max-width: 1000px)": {
+        "&": {
+            display: "flex",
+            flexDirection: "column",
+            padding: "5rem 0",
+            overflowY: "scroll",
+            width: "100%",
+            gap: "4rem",
+            justifyContent: "start",
+            alignItems: "center",
+            paddingTop: "2rem",
+
+            "> div p, > div span, > div span.occupation, > div a, > div input": {
+                fontSize: "100%"
+            },
+
+            "> div h1": {
+                fontSize: "1.5rem"
+            },
+
+            ".presentation": {
+                display: "flex",
+                alignItems: "center"
+            },
+
+            "> div": {
+                "&:first-child": {
+                    gap: "3rem",
+                }
+            }
         }
     }
 })

@@ -55,5 +55,34 @@ export const HeaderContainer = styled('div', {
         height: "1rem",
         background: "$background",
         boxShadow: "0px 4px 6px 0px rgba(0, 0, 0, 0.3);"
+    },
+
+    "@media (max-width: 1000px)": {
+        ".navigationDiv, .borderDiv": {
+            display: "none",
+        },
+    }
+})
+
+export const MenuContainer = styled('div', {
+    display: "none",
+
+    "@media (max-width: 1000px)": {
+        "&": {
+            display: "flex",
+            padding: "1.3rem 2rem",
+            alignItems: "center",
+            justifyContent: "end",
+            boxShadow: "0px 4px 6px 0px rgba(0, 0, 0, 0.3)",
+
+            button: {
+                padding: "none",
+                background: "none",
+
+                svg: {
+                    color: "$icon"
+                }
+            }
+        }
     }
 })

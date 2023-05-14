@@ -56,7 +56,7 @@ export default function Home() {
   return (
     <HomeContainer style={style}>
       <div>
-        <div>
+        <div className="presentation">
           <span>Hello! My name is</span>
           <h1>Vitor Hugo Antunes</h1>
           <span className="occupation">Front-end developer</span>
