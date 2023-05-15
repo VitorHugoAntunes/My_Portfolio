@@ -20,12 +20,12 @@ export const AboutContainer = styled('div', {
 
         "> section": {
             order: 1,
-            padding: "1rem",
+            padding: "0.5rem 0",
             gap: "0.5rem",
         },
 
         "p, span, a": {
-            fontSize: "60%"
+            fontSize: "80%"
         },
     }
 })
