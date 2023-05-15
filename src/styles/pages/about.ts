@@ -25,7 +25,7 @@ export const AboutContainer = styled('div', {
         },
 
         "p, span, a": {
-            fontSize: "80%"
+            fontSize: "70%"
         },
     }
 })
