@@ -66,13 +66,15 @@ export const HeaderContainer = styled('div', {
 
 export const MenuContainer = styled('div', {
     display: "none",
+    position: "relative",
 
     "@media (max-width: 1000px)": {
         "&": {
+            width: "100%",
             display: "flex",
             padding: "1.3rem 2rem",
             alignItems: "center",
-            justifyContent: "end",
+            justifyContent: "space-between",
             boxShadow: "0px 4px 6px 0px rgba(0, 0, 0, 0.3)",
 
             button: {
@@ -81,6 +83,65 @@ export const MenuContainer = styled('div', {
 
                 svg: {
                     color: "$icon"
+                }
+            },
+
+            ".menuModal": {
+                width: "100vw",
+                height: "100vh",
+                background: "$darkBackground",
+                display: "none",
+                left: 0,
+                top: 0,
+                zIndex: 10,
+
+                "&.open": {
+                    position: "absolute",
+                    display: "flex",
+                    transition: "display 1s ease-in-out",
+                    flexDirection: "column",
+
+                    "> div, > div a": {
+                        borderBottom: "1px solid $border"
+                    },
+
+                    "> div:first-child": {
+                        display: "flex",
+                        justifyContent: "end",
+                        padding: "1.3rem 2rem",
+                    },
+
+                    button: {
+                        height: "fit-content",
+                    },
+
+                    ".navigationDiv": {
+                        display: "flex",
+                        flexDirection: "column",
+                        width: "100%",
+                        border: "none",
+
+                        "> div:last-child": {
+                            display: "none",
+                        },
+
+                        "> a": {
+                            padding: "1.3rem 2rem",
+                            borderRight: "none"
+                        },
+                    },
+
+                    ".footerDiv": {
+                        display: "flex",
+
+                        "> div:first-child": {
+                            flex: 1
+                        },
+
+                        ".usefulLinks": {
+                            display: "none"
+                        }
+                    }
                 }
             }
         }

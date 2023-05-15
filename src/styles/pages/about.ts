@@ -2,7 +2,30 @@ import { styled } from "@stitches/react";
 
 export const AboutContainer = styled('div', {
     height: "100%",
-    display: "flex"
+    display: "flex",
+
+    "@media (max-width: 1000px)": {
+        flexDirection: "column",
+
+        "> aside:first-child": {
+            order: 2,
+            height: "fit-content",
+            gap: "1rem",
+
+            "> span:last-child": {
+                marginBottom: 0
+            }
+        },
+
+        "> section:last-child": {
+            order: 1,
+            gap: "0.5rem"
+        },
+
+        "p, span, a": {
+            fontSize: "60%"
+        },
+    }
 })
 
 export const InterestsContainer = styled('aside', {
@@ -66,6 +89,10 @@ export const InterestsContainer = styled('aside', {
         strong: {
             textDecoration: "underline",
         }
+    },
+
+    "@media (max-width: 1000px)": {
+        width: "100%"
     }
 })
 

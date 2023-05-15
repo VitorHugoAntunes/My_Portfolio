@@ -41,7 +41,7 @@ export const globalStyles = globalCss({
       maxWidth: "20rem",
 
       "p, span, a": {
-        fontSize: "80%"
+        fontSize: "75%"
       }
     }
   }

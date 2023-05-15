@@ -20,7 +20,15 @@ export const ProjectsWrapper = styled('section', {
     gridTemplateColumns: "1fr 1fr",
     columnGap: "6rem",
     rowGap: "3rem",
-    marginBottom: "5rem"
+    marginBottom: "5rem",
+
+    "@media (max-width: 1000px)": {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: "2rem"
+    }
 })
 
 export const ProjectDiv = styled('div', {
@@ -49,6 +57,16 @@ export const ProjectDiv = styled('div', {
 
         "&:hover": {
             filter: "brightness(0.8)"
+        }
+    },
+
+    "@media (max-width: 1000px)": {
+        alignItems: "center",
+        justifyContent: "center",
+        maxWidth: "320px",
+
+        "> div": {
+            width: "100%"
         }
     }
 })

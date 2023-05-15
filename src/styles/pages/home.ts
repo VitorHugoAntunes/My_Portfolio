@@ -53,10 +53,10 @@ export const HomeContainer = styled('div', {
         "&": {
             display: "flex",
             flexDirection: "column",
-            padding: "5rem 0",
+            padding: "1rem 0",
             overflowY: "scroll",
             width: "100%",
-            gap: "4rem",
+            gap: "2rem",
             justifyContent: "start",
             alignItems: "center",
             paddingTop: "2rem",
@@ -77,6 +77,14 @@ export const HomeContainer = styled('div', {
             "> div": {
                 "&:first-child": {
                     gap: "3rem",
+                }
+            },
+
+            ".projectCard": {
+                maxWidth: "20rem",
+
+                "p, span, a": {
+                    fontSize: "75%"
                 }
             }
         }

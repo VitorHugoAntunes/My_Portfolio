@@ -17,7 +17,7 @@ export default function Footer() {
         }, 1000)
     }, [])
     return (
-        <FooterContainer>
+        <FooterContainer className="footerDiv">
             <div>
                 <span>Find me:</span>
             </div>
@@ -27,7 +27,7 @@ export default function Footer() {
             <Link href={"https://github.com/VitorHugoAntunes"} target="_blank">
                 <FiGithub size={20} />
             </Link>
-            <div>
+            <div className="usefulLinks">
                 <Link href={"https://www.youtube.com/watch?v=3SzGfRGSUcM"} target={"_blank"}>What song is playing?</Link>
                 <div />
                 <span>{currentHour}:{currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes} {currentDate}</span>

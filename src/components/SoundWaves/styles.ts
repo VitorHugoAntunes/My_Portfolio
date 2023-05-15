@@ -92,4 +92,9 @@ export const SoundWavesBox = styled('div', {
             filter: "brightness(0.8)"
         }
     },
+
+    "@media (max-width: 1000px)": {
+        right: "1.5rem",
+        bottom: "1.5rem",
+    }
 })

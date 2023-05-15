@@ -5,7 +5,6 @@ export const ProjectCardDiv = styled('div', {
     border: "1px solid $border",
     borderRadius: "8px",
     width: "30rem",
-
     display: "flex",
     gap: "1rem",
     background: "$card",
