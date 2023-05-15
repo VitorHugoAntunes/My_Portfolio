@@ -80,9 +80,14 @@ export const MenuContainer = styled('div', {
             button: {
                 padding: "none",
                 background: "none",
+                transition: "0.2s",
 
                 svg: {
                     color: "$icon"
+                },
+
+                "&:hover": {
+                    filter: "brightness(0.8)"
                 }
             },
 

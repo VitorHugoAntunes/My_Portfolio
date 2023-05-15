@@ -3,11 +3,12 @@ import { styled } from "@stitches/react";
 export const AboutContainer = styled('div', {
     height: "100%",
     display: "flex",
+    overflow: "hidden",
 
     "@media (max-width: 1000px)": {
         flexDirection: "column",
 
-        "> aside:first-child": {
+        "> aside": {
             order: 2,
             height: "fit-content",
             gap: "1rem",
@@ -17,9 +18,10 @@ export const AboutContainer = styled('div', {
             }
         },
 
-        "> section:last-child": {
+        "> section": {
             order: 1,
-            gap: "0.5rem"
+            padding: "1rem",
+            gap: "0.5rem",
         },
 
         "p, span, a": {
@@ -29,8 +31,9 @@ export const AboutContainer = styled('div', {
 })
 
 export const InterestsContainer = styled('aside', {
+    maxHeight: "100vh",
     height: "100%",
-    width: "20rem",
+    width: "35rem",
     background: "$darkBackground",
     border: "2px solid $border",
     borderBottom: "none",
@@ -38,12 +41,17 @@ export const InterestsContainer = styled('aside', {
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
+    overflowY: "scroll",
 
     ".tagsDiv": {
         marginTop: "1rem",
         display: "flex",
         flexDirection: "column",
         gap: "0.5rem",
+
+        "&:last-child": {
+            marginBottom: "2rem",
+        },
 
         ".myInterests": {
             display: "flex",
@@ -64,8 +72,8 @@ export const InterestsContainer = styled('aside', {
             },
         },
 
-        ".techInterests": {
-            display: "flex",
+        ".techInterests, .education": {
+            display: "none",
             flexDirection: "column",
             gap: "0.5rem",
 
@@ -75,6 +83,7 @@ export const InterestsContainer = styled('aside', {
             transition: "visibility 0.2s ease-in-out, opacity 0.2s ease-in-out",
 
             "&.open": {
+                display: "flex",
                 visibility: "visible",
                 opacity: 1,
             }
