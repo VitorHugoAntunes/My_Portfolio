@@ -72,18 +72,19 @@ export const InterestsContainer = styled('aside', {
             },
         },
 
-        ".techInterests, .education": {
-            display: "none",
-            flexDirection: "column",
+        ".techInterests": {
             gap: "0.5rem",
-
+            height: 0,
+            overflow: "hidden",
             marginLeft: "1rem",
             visibility: "hidden",
             opacity: 0,
-            transition: "visibility 0.2s ease-in-out, opacity 0.2s ease-in-out",
+            transition: "display 0.2s ease-in-out, opacity 0.2s ease-in-out",
 
             "&.open": {
                 display: "flex",
+                flexDirection: "column",
+                height: "100%",
                 visibility: "visible",
                 opacity: 1,
             }

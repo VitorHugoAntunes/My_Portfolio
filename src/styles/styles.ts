@@ -8,6 +8,7 @@ export const {
     keyframes,
     getCssText,
     theme,
+    reset,
     createTheme,
 } = createStitches({
     theme: {
