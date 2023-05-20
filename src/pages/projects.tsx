@@ -4,6 +4,7 @@ import { ProjectDiv, ProjectsContainer, ProjectsWrapper } from '@/styles/pages/p
 import axios from 'axios'
 import Link from 'next/link'
 import { useState, useEffect, useContext } from 'react'
+import { FiLoader } from 'react-icons/fi'
 
 interface RepositoryProps {
     name: string;
@@ -62,15 +63,19 @@ export default function Projects() {
         fetchData();
     }, [setCommitsArray, setFilteredRepositories])
 
-
     const style = {
         opacity: isVisible ? 1 : 0,
         transition: 'opacity 0.5s ease-in-out',
     }
+
     return (
         <ProjectsContainer style={style}>
             <ProjectsWrapper>
-                {filteredRepositories !== null && filteredRepositories.length > 0 && filteredRepositories.map((repositoryProject, index) => (
+                {filteredRepositories.length === 0 ? (
+                    <div className='loadingDiv'>
+                        <FiLoader size={24} />
+                    </div>
+                ) : filteredRepositories !== null && filteredRepositories.length > 0 && filteredRepositories.map((repositoryProject, index) => (
                     <ProjectDiv key={repositoryProject.id}>
                         <ProjectCard
                             title={`${repositoryProject.name}`}
@@ -83,6 +88,7 @@ export default function Projects() {
                         />
 
                         <p>{repositoryProject.description}</p>
+
                         <Link href={`${repositoryProject.html_url}`} target={'_blank'}>
                             Check in GitHub
                         </Link>

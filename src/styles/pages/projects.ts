@@ -1,4 +1,4 @@
-import { styled } from "@stitches/react";
+import { keyframes, styled } from "@stitches/react";
 
 export const ProjectsContainer = styled('div', {
     width: "100%",
@@ -14,6 +14,12 @@ export const ProjectsContainer = styled('div', {
     }
 })
 
+const loadingSpin = keyframes({
+    '100%': {
+        transform: "rotate(360deg)"
+     },    
+});
+
 export const ProjectsWrapper = styled('section', {
     marginTop: "5rem",
     display: "grid",
@@ -21,6 +27,19 @@ export const ProjectsWrapper = styled('section', {
     columnGap: "6rem",
     rowGap: "3rem",
     marginBottom: "5rem",
+
+    ".loadingDiv": {
+        flex: 1,
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "1rem",
+
+        "> svg": {
+            animation: `${loadingSpin} 4s linear infinite`
+        }
+    },
 
     "@media (max-width: 1000px)": {
         display: "flex",
