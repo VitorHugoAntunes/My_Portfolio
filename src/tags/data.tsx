@@ -19,7 +19,7 @@ export const techTags = [
 export const educationTags = [
     { icon: <FaSchool size={16} />, title: "High-school - 2016/2018" },
     { icon: <FaUniversity size={16} />, title: "Systems Development - 2019/2020" },
-    { icon: <FaUniversity size={16} />, title: "Analysis and Systems Development - 2021/2024" },
+    { icon: <FaUniversity size={16} />, title: "Analysis and Systems Development - 2022/2024" },
     { icon: <FaCode size={16} color="#E74CA0" />, title: "Rocketseat Ignite - 2022/2023" },
 ]
 
